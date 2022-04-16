@@ -2,7 +2,15 @@ version: '3'
 
 services:
   nodejs:
-    #fill out the configuration here
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nodejs
+    restart: unless-stopped
+    expose:
+      - "8080"
+    volumes:
+      - web-root:/home/node/app
     networks:
       - app-network
   
@@ -13,7 +21,7 @@ services:
     container_name: webserver
     restart: unless-stopped
     ports:
-      - "80"
+      - "80:80"
     volumes:
       - web-root:/var/www/html
       - ./nginx-conf:/etc/nginx/conf.d
@@ -24,12 +32,6 @@ services:
 
 volumes:
   web-root:
-    driver: local
-    driver_opts:
-      type: none
-      #fill out your absolute path to your folder here
-      device: /absolute/path/to/web/template/folder
-      o: bind
 
 networks:
   app-network:

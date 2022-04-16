@@ -1,0 +1,18 @@
+name: Delete website
+on:
+  workflow_dispatch:
+jobs:
+  delete_repo:
+    name: Delete repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deletes repository
+        uses: appleboy/ssh-action@master
+        with:
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          script: |
+            unalias rm
+            rm -rf project5

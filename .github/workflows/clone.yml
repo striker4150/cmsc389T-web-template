@@ -1,0 +1,17 @@
+name: Clone workflow
+on:
+  workflow_dispatch:
+jobs:
+  clone_repo:
+    name: Clone repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clones repository
+        uses: appleboy/ssh-action@master
+        with:
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          script: |
+            git clone https://github.com/striker4150/cmsc389T-web-template.git project5

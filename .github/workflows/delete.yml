@@ -15,4 +15,5 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             unalias rm
+            cd /pub/dkam
             rm -rf index.html assets/ css/ js/ project5/

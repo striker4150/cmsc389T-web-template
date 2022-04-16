@@ -14,5 +14,7 @@ jobs:
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
           script: |
+            cd /pub/dkam
             git clone https://github.com/striker4150/cmsc389T-web-template.git project5
+            cd project5
             cp -Rf index.html assets/ css/ js/ ../

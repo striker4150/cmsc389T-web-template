@@ -15,6 +15,6 @@ jobs:
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
           script: |
-            cd project5
+            cd /pub/dkam/project5
             git pull
             cp -Rf index.html assets/ css/ js/ ../

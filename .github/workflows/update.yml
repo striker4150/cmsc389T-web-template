@@ -1,4 +1,4 @@
-name: Update workflow
+name: Update website
 on:
   push:
     branches: [main]
@@ -7,7 +7,7 @@ jobs:
     name: Update repository
     runs-on: ubuntu-latest
     steps:
-      - name: Updates repository
+      - name: Update repository
         uses: appleboy/ssh-action@master
         with:
           username: ${{ secrets.USERNAME }}
@@ -17,3 +17,4 @@ jobs:
           script: |
             cd project5
             git pull
+            cp -Rf index.html assets/ css/ js/ ../

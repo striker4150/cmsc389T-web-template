@@ -6,7 +6,7 @@ jobs:
     name: Delete repository
     runs-on: ubuntu-latest
     steps:
-      - name: Deletes repository
+      - name: Delete repository
         uses: appleboy/ssh-action@master
         with:
           username: ${{ secrets.USERNAME }}
@@ -15,4 +15,4 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             unalias rm
-            rm -rf project5
+            rm -rf index.html assets/ css/ js/ project5/
